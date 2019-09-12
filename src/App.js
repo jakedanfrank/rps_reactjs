@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Container, Header, } from "semantic-ui-react";
+import  Choices from "./components/Choices";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  state = {
+    choices: [
+      { id: 1, name: "Rock", },
+      { id: 2, name: "Paper", },
+      { id:3, name: "Scissors", },
+    ]
+  };
+
+rockChoice = () => {
+  
 }
 
-export default App;
+  render() {
+    return (
+      <Container style={{ paddingTop: "35px" }}>
+        <Header as="h1" style={{ textAlign: "center" }}>ROCK! - PAPER! - SCISSORS!</Header>
+        <Choices choices={this.state.choices} rockChoice={this.rockChoice}/>
+      </Container>
+        
+    )
+  }
+}
+
+export default App
